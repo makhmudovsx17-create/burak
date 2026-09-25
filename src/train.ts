@@ -1,12 +1,21 @@
+// MITASK - N
+
+function palindromCheck(str: string): boolean {
+    const reversed: string = str.split('').reverse().join('');
+    return str === reversed;
+}
+console.log(palindromCheck("dad"));
+console.log(palindromCheck("son"));
+
 // MITASK - M
 
-function getSquareNumbers(numbers: number[]): { number: number; square: number }[] {
-    return numbers.map((number) => {
-        return { number: number, square: number * number };
-    });
-}
+// function getSquareNumbers(numbers: number[]): { number: number; square: number }[] {
+//     return numbers.map((number) => {
+//         return { number: number, square: number * number };
+//     });
+// }
 
-console.log(getSquareNumbers([1, 2, 3]));
+// console.log(getSquareNumbers([1, 2, 3]));
 
 // MITASK - L
 
