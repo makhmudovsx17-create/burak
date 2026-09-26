@@ -1,11 +1,21 @@
+/* Project Standarts:
+    - Logging Standards  => Through MORGAN_FORMAT
+    - Naming Standards
+        * function, method, variable => CAMEL case  goHome
+        * class => PASCAL case                      MemberService
+        * folder => KEBAB case
+        * css => SNAKE case                         button_style
+    - Error handlings
+*/
+
 // MITASK - N
 
-function palindromCheck(str: string): boolean {
-    const reversed: string = str.split('').reverse().join('');
-    return str === reversed;
-}
-console.log(palindromCheck("dad"));
-console.log(palindromCheck("son"));
+// function palindromCheck(str: string): boolean {
+//     const reversed: string = str.split('').reverse().join('');
+//     return str === reversed;
+// }
+// console.log(palindromCheck("dad"));
+// console.log(palindromCheck("son"));
 
 // MITASK - M
 
