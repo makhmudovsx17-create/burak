@@ -1,3 +1,11 @@
+function calculateSumOfNumbers(arr: unknown[]): number {
+    return arr.reduce((sum: number, item: unknown) => {
+        return typeof item === "number" ? sum + item : sum;
+    }, 0);
+}
+
+console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+
 /* Project Standarts:
     - Logging Standards  => Through MORGAN_FORMAT
     - Naming Standards
