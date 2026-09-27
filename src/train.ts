@@ -8,6 +8,15 @@
     - Error handlings
 */
 
+
+/* Most used APIs:
+    - Traditional API
+    - Rest(ful) API
+    - GraphQL API
+*/
+
+
+
 // MITASK - N
 
 // function palindromCheck(str: string): boolean {
