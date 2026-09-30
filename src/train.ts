@@ -1,10 +1,24 @@
-function calculateSumOfNumbers(arr: unknown[]): number {
-    return arr.reduce((sum: number, item: unknown) => {
-        return typeof item === "number" ? sum + item : sum;
-    }, 0);
+// MITASK - P
+
+function objectToArray<T>(obj: Record<string, T>): [string, T][] {
+    const result: [string, T][] = [];
+    for (const key in obj) {
+        result.push([key, obj[key]]);
+    }
+    return result;
 }
 
-console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+console.log(objectToArray({ a: 10, b: 20 }));
+
+// MITASK - O
+
+// function calculateSumOfNumbers(arr: unknown[]): number {
+//     return arr.reduce((sum: number, item: unknown) => {
+//         return typeof item === "number" ? sum + item : sum;
+//     }, 0);
+// }
+
+// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
 
 /* Project Standarts:
     - Logging Standards  => Through MORGAN_FORMAT
