@@ -1,24 +1,7 @@
-// MITASK - P
-
-function objectToArray<T>(obj: Record<string, T>): [string, T][] {
-    const result: [string, T][] = [];
-    for (const key in obj) {
-        result.push([key, obj[key]]);
-    }
-    return result;
-}
-
-console.log(objectToArray({ a: 10, b: 20 }));
-
-// MITASK - O
-
-// function calculateSumOfNumbers(arr: unknown[]): number {
-//     return arr.reduce((sum: number, item: unknown) => {
-//         return typeof item === "number" ? sum + item : sum;
-//     }, 0);
-// }
-
-// console.log(calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]));
+/*
+    Traditional FD  => BSSR  => EJS    => Admin
+    Modern FD       => SPA   => REACT  => User application
+*/
 
 /* Project Standarts:
     - Logging Standards  => Through MORGAN_FORMAT
@@ -36,45 +19,3 @@ console.log(objectToArray({ a: 10, b: 20 }));
     - Rest(ful) API
     - GraphQL API
 */
-
-
-
-// MITASK - N
-
-// function palindromCheck(str: string): boolean {
-//     const reversed: string = str.split('').reverse().join('');
-//     return str === reversed;
-// }
-// console.log(palindromCheck("dad"));
-// console.log(palindromCheck("son"));
-
-// MITASK - M
-
-// function getSquareNumbers(numbers: number[]): { number: number; square: number }[] {
-//     return numbers.map((number) => {
-//         return { number: number, square: number * number };
-//     });
-// }
-
-// console.log(getSquareNumbers([1, 2, 3]));
-
-// MITASK - L
-
-// function majorityElement(arr: number[]): number {
-//     const counts: Record<number, number> = {};
-//     let maxCount = 0;
-//     let result = arr[0];
-
-//     for (const num of arr) {
-//         counts[num] = (counts[num] || 0) + 1;
-
-//         if (counts[num] > maxCount) {
-//             maxCount = counts[num];
-//             result = num;
-//         }
-//     }
-
-//     return result;
-// }
-
-// console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4]));

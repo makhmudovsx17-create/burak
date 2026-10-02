@@ -7,7 +7,6 @@ import { MORGAN_FORMAT } from "./libs/config";
 
 /** 1 - ENTRANCE **/
 const app = express(); // loyihamiz BSSR usulida quriladi va bu cod sourcelarni butun brauzerlarga ochib beradi
-console.log("__dirname:", __dirname);
 app.use(express.static(path.join(__dirname, "public"))); // Middleware DP > publicni ochiqlayapti
 app.use(express.urlencoded({ extended: true })); // Middleware DP > Traditional APIga hizmat qilyapti
 app.use(express.json()); // Middleware DP > REST APIga hizmat qilyapti
