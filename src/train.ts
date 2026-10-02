@@ -1,3 +1,8 @@
+const hasProperty = (obj: object, str: string) => str in obj;
+
+console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
+console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
+
 /*
     Traditional FD  => BSSR  => EJS    => Admin
     Modern FD       => SPA   => REACT  => User application
