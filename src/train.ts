@@ -1,7 +1,14 @@
-const hasProperty = (obj: object, str: string) => str in obj;
+// MITASK - R
 
-console.log(hasProperty({ name: "BMW", model: "M3" }, "model"));
-console.log(hasProperty({ name: "BMW", model: "M3" }, "year"));
+function calculate(str: string): number {
+    return str
+        .split("+")
+        .reduce((sum: number, n: string) => sum + Number(n), 0);
+}
+
+console.log(calculate("1+3"));
+console.log(calculate("1+3+5+7"));
+console.log(calculate("20+30+40"));
 
 /*
     Traditional FD  => BSSR  => EJS    => Admin
