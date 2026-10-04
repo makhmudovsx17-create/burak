@@ -5,6 +5,15 @@ import routerAdmin from "./router-admin";
 import morgan from 'morgan';
 import { MORGAN_FORMAT } from "./libs/config";
 
+import session from "express-session";
+import ConnectMongoDB from "connect-mongodb-session";
+
+const MongoDBStore = ConnectMongoDB(session);
+const store = new MongoDBStore({
+    uri: String(process.env.MONGO_URL),
+    collection: "session",  // MongoDB ga "sessions" nomi bilan yangi collection ochamiz
+});
+
 /** 1 - ENTRANCE **/
 const app = express(); // loyihamiz BSSR usulida quriladi va bu cod sourcelarni butun brauzerlarga ochib beradi
 app.use(express.static(path.join(__dirname, "public"))); // Middleware DP > publicni ochiqlayapti
@@ -13,6 +22,17 @@ app.use(express.json()); // Middleware DP > REST APIga hizmat qilyapti
 app.use(morgan(MORGAN_FORMAT));
 
 /** 2 - SESSIONS **/
+app.use(
+    session({
+        secret: String(process.env.SESSION_SECRET), // sessionlarni hosil qiladigan kod
+        cookie: {
+            maxAge: 1000 * 3600 * 3,  // 3h  // sessionlarni amal qilish muddati
+        },
+        store: store,
+        resave: true,
+        saveUninitialized: true
+    })
+);
 
 /** 3 - VIEWS **/
 app.set('views', path.join(__dirname, 'views'));
