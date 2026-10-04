@@ -5,7 +5,7 @@ method: POST
 body:
   type: urlencoded
   content:
-    memberNick: Nusret
-    memberPhone: "821024694488"
+    memberNick: Burak
+    memberPhone: "821024694424"
     memberPassword: damir2020
 order: 3481731207454247
