@@ -28,8 +28,8 @@ app.use(
         cookie: {
             maxAge: 1000 * 3600 * 3,  // 3h  // sessionlarni amal qilish muddati
         },
-        store: store,
-        resave: true,
+        store: store, // MongoDBdagi sessions collectioniga murojaat etadi
+        resave: true, // ohirgi kirgandan so'ng 3 soat mobaynida 
         saveUninitialized: true
     })
 );
