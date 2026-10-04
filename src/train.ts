@@ -31,3 +31,8 @@ console.log(calculate("20+30+40"));
     - Rest(ful) API
     - GraphQL API
 */
+
+/*
+    request join
+    self destroy
+*/
