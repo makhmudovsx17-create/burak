@@ -1,0 +1,18 @@
+$kind: http-request
+name: "product: createNewProduct"
+url: localhost:3003/admin/product/create
+method: POST
+body:
+  type: formdata
+  content:
+    - type: file
+      key: productImages
+      src:
+        - /Users/ms_fel1x/Desktop/images (1).jpeg
+        - /Users/ms_fel1x/Desktop/images (2).jpeg
+        - /Users/ms_fel1x/Desktop/images (3).jpeg
+        - /Users/ms_fel1x/Desktop/images (4).jpeg
+        - /Users/ms_fel1x/Desktop/images.jpeg
+      description: ""
+      disabled: false
+order: 4490985734790916
