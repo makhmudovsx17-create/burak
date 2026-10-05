@@ -10,7 +10,7 @@ console.log(calculate("1+3"));
 console.log(calculate("1+3+5+7"));
 console.log(calculate("20+30+40"));
 
-/*
+/* Frontend development
     Traditional FD  => BSSR  => EJS    => Admin
     Modern FD       => SPA   => REACT  => User application
 */
@@ -32,7 +32,13 @@ console.log(calculate("20+30+40"));
     - GraphQL API
 */
 
-/*
+/* Cookies:
     request join
     self destroy
+*/
+
+/* Validations:
+    -  Frontend validation
+    -  Backend validation
+    -  Database validation
 */
