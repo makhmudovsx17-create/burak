@@ -1,14 +1,18 @@
-// MITASK - R
+// MITASK - S
 
-function calculate(str: string): number {
-    return str
-        .split("+")
-        .reduce((sum: number, n: string) => sum + Number(n), 0);
+function missingNumber(arr: number[]): number {
+    const n = arr.length;
+    const total = (n * (n + 1)) / 2;
+
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum = sum + arr[i];
+    }
+
+    return total - sum;
 }
 
-console.log(calculate("1+3"));
-console.log(calculate("1+3+5+7"));
-console.log(calculate("20+30+40"));
+console.log(missingNumber([3, 0, 1]));
 
 /* Frontend development
     Traditional FD  => BSSR  => EJS    => Admin
