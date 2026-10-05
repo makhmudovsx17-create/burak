@@ -1,5 +1,5 @@
 $kind: http-request
-name: processSignup
+name: "member: processSignup"
 url: localhost:3003/admin/signup
 method: POST
 body:
