@@ -23,7 +23,7 @@ body:
     - type: file
       key: memberImage
       src:
-        - /Users/ms_fel1x/Desktop/gulfnews_2025-09-04_g39o5ibu_gulfnewsimport20201224czn-burak176938eb5dblarge.avif
+        - /Users/ms_fel1x/Desktop/images.jpeg
       description: ""
       disabled: false
 order: 3481731207454247
