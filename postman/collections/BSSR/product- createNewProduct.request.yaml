@@ -5,14 +5,48 @@ method: POST
 body:
   type: formdata
   content:
+    - type: text
+      key: productCollection
+      value: DISH
+      description: ""
+      disabled: false
+    - type: text
+      key: productName
+      value: KEBAB
+      description: ""
+      disabled: false
+    - type: text
+      key: productPrice
+      value: "10"
+      description: ""
+      disabled: false
+    - type: text
+      key: productLeftCount
+      value: "100"
+      description: ""
+      disabled: false
+    - type: text
+      key: productSize
+      value: NORMAL
+      description: ""
+      disabled: false
+    - type: text
+      key: productVolume
+      value: "1"
+      description: ""
+      disabled: true
+    - type: text
+      key: productDesc
+      value: Delicious meal
+      description: ""
+      disabled: false
     - type: file
       key: productImages
       src:
         - /Users/ms_fel1x/Desktop/images (1).jpeg
         - /Users/ms_fel1x/Desktop/images (2).jpeg
         - /Users/ms_fel1x/Desktop/images (3).jpeg
-        - /Users/ms_fel1x/Desktop/images (4).jpeg
-        - /Users/ms_fel1x/Desktop/images.jpeg
+        - /Users/ms_fel1x/Desktop/images (8).jpeg
       description: ""
       disabled: false
 order: 4490985734790916
