@@ -12,12 +12,12 @@ body:
       disabled: false
     - type: text
       key: productName
-      value: KEBAB
+      value: Steak
       description: ""
       disabled: false
     - type: text
       key: productPrice
-      value: "10"
+      value: "15"
       description: ""
       disabled: false
     - type: text
@@ -43,10 +43,9 @@ body:
     - type: file
       key: productImages
       src:
-        - /Users/ms_fel1x/Desktop/images (1).jpeg
-        - /Users/ms_fel1x/Desktop/images (2).jpeg
-        - /Users/ms_fel1x/Desktop/images (3).jpeg
-        - /Users/ms_fel1x/Desktop/images (8).jpeg
+        - /Users/ms_fel1x/Desktop/images (5).jpeg
+        - /Users/ms_fel1x/Desktop/images (6).jpeg
+        - /Users/ms_fel1x/Desktop/images (7).jpeg
       description: ""
       disabled: false
 order: 4490985734790916
