@@ -1,18 +1,10 @@
-// MITASK - S
+// MITASK - T
 
-function missingNumber(arr: number[]): number {
-    const n = arr.length;
-    const total = (n * (n + 1)) / 2;
-
-    let sum = 0;
-    for (let i = 0; i < arr.length; i++) {
-        sum = sum + arr[i];
-    }
-
-    return total - sum;
+function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
+    return [...arr1, ...arr2].sort((a, b) => a - b);
 }
 
-console.log(missingNumber([3, 0, 1]));
+console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
 
 /* Frontend development
     Traditional FD  => BSSR  => EJS    => Admin
