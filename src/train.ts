@@ -1,10 +1,9 @@
-// MITASK - T
+// MITASK - U
 
-function mergeSortedArrays(arr1: number[], arr2: number[]): number[] {
-    return [...arr1, ...arr2].sort((a, b) => a - b);
-}
+const sumOdds = (n: number): number => Math.floor(n / 2);
 
-console.log(mergeSortedArrays([0, 3, 4, 31], [4, 6, 30]));
+console.log(sumOdds(9));
+console.log(sumOdds(11));
 
 /* Frontend development
     Traditional FD  => BSSR  => EJS    => Admin
