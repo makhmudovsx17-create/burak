@@ -1,9 +1,10 @@
-// MITASK - U
+const countChars = (s: string): Record<string, number> =>
+    [...s].reduce(
+        (o, c) => ({ ...o, [c]: (o[c] ?? 0) + 1 }),
+        {} as Record<string, number>,
+    );
 
-const sumOdds = (n: number): number => Math.floor(n / 2);
-
-console.log(sumOdds(9));
-console.log(sumOdds(11));
+console.log(countChars("hello"));
 
 /* Frontend development
     Traditional FD  => BSSR  => EJS    => Admin
@@ -19,7 +20,6 @@ console.log(sumOdds(11));
         * css => SNAKE case                         button_style
     - Error handlings
 */
-
 
 /* Most used APIs:
     - Traditional API
