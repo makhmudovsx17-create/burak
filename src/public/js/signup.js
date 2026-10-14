@@ -10,7 +10,7 @@ $(function () {
             const fileType = uploadFile["type"];
             const validImageType = ["image/jpg", "image/jpeg", "image/png"];
             if (!validImageType.includes(fileType)) {
-                alert("Pleasse insert only .jpg, .jped, and .png!");
+                alert("Please insert only .jpg, .jpeg, and .png!");
             } else {
                 if (uploadFile) {
                     console.log(URL.createObjectURL(uploadFile));
@@ -46,10 +46,10 @@ function validateSignupForm() {
         return false;
     }
 
-    const memberImage = $(".member-image").get[0].files[0]
-        ? $(".member-image").get[0].files[0].name
+    const memberImage = $(".member-image").get(0).files[0]
+        ? $(".member-image").get(0).files[0].name
         : null;
-    if (memberImage) {
+    if (!memberImage) {
         alert("Please insert restaurant image!");
         return false;
     }
