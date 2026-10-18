@@ -1,10 +1,12 @@
-const countChars = (s: string): Record<string, number> =>
-    [...s].reduce(
-        (o, c) => ({ ...o, [c]: (o[c] ?? 0) + 1 }),
-        {} as Record<string, number>,
-    );
+function chunkArray<T>(arr: T[], size: number): T[][] {
+    const result: T[][] = [];
+    for (let i = 0; i < arr.length; i += size) {
+        result.push(arr.slice(i, i + size));
+    }
+    return result;
+}
 
-console.log(countChars("hello"));
+console.log(chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
 
 /* Frontend development
     Traditional FD  => BSSR  => EJS    => Admin
