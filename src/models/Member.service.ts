@@ -1,7 +1,12 @@
 import MemberModel from "../schema/Member.model";
-import { LoginInput, Member, memberInput, memberUpdateInput } from "../libs/types/member";
+import {
+    LoginInput,
+    Member,
+    memberInput,
+    memberUpdateInput,
+} from "../libs/types/member";
 import Errors, { HttpCode, Message } from "../libs/Errors";
-import { MemberType } from "../libs/enums/member.enum";
+import { MemberStatus, MemberType } from "../libs/enums/member.enum";
 import * as bcrypt from "bcryptjs";
 import { shapeIntoMongooseObjectId } from "../libs/config";
 
@@ -29,18 +34,26 @@ class MemberService {
     }
 
     public async login(input: LoginInput): Promise<Member> {
-        // TODO: Consider member status later
         const member = await this.memberModel
             .findOne(
-                { memberNick: input.memberNick },
-                { memberNick: 1, memberPassword: 1 })
+                {
+                    memberNick: input.memberNick,
+                    memberStatus: { $ne: MemberStatus.DELETE },
+                },
+                { memberNick: 1, memberPassword: 1, memberStatus: 1 },
+            )
             .exec();
-        if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+        if (!member)
+            throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
+        else if (member.memberStatus === MemberStatus.BLOCK) {
+            throw new Errors(HttpCode.FORBIDDEN, Message.BLOCKED_USER);
+        }
 
+        console.log("member:", member);
 
         const isMatch = await bcrypt.compare(
             input.memberPassword,
-            member.memberPassword
+            member.memberPassword,
         );
         if (!isMatch) {
             throw new Errors(HttpCode.UNAUTHORIZED, Message.WRONG_PASSWORD);
@@ -55,7 +68,8 @@ class MemberService {
         const exist = await this.memberModel
             .findOne({ memberType: MemberType.RESTAURANT })
             .exec();
-        if (exist) throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
+        if (exist)
+            throw new Errors(HttpCode.BAD_REQUEST, Message.CREATE_FAILED);
 
         const salt = await bcrypt.genSalt();
         input.memberPassword = await bcrypt.hash(input.memberPassword, salt);
@@ -73,14 +87,15 @@ class MemberService {
         const member = await this.memberModel
             .findOne(
                 { memberNick: input.memberNick },
-                { memberNick: 1, memberPassword: 1 })
+                { memberNick: 1, memberPassword: 1 },
+            )
             .exec();
-        if (!member) throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
-
+        if (!member)
+            throw new Errors(HttpCode.NOT_FOUND, Message.NO_MEMBER_NICK);
 
         const isMatch = await bcrypt.compare(
             input.memberPassword,
-            member.memberPassword
+            member.memberPassword,
         );
 
         if (!isMatch) {
@@ -94,7 +109,8 @@ class MemberService {
         const result = await this.memberModel
             .find({ memberType: MemberType.USER })
             .exec();
-        if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+        if (!result)
+            throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
         return result;
     }
@@ -104,7 +120,8 @@ class MemberService {
         const result = await this.memberModel
             .findByIdAndUpdate({ _id: input._id }, input, { new: true })
             .exec();
-        if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+        if (!result)
+            throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
 
         return result;
     }

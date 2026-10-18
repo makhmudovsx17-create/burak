@@ -7,7 +7,6 @@ body:
   content: |-
     {
         "_id": "6aca2d6796eba108b06afd18",
-        "memberNick": "Roberto",
         "memberStatus": "ACTIVE"
     }
 order: 4192575882712708
