@@ -1,8 +1,11 @@
 import { shapeIntoMongooseObjectId } from "../libs/config";
 import Errors, { HttpCode, Message } from "../libs/Errors";
-import { Product, ProductInput, ProductUpdateInput } from "../libs/types/product";
-import ProductModel from "../schema/Product.model"
-
+import {
+    Product,
+    ProductInput,
+    ProductUpdateInput,
+} from "../libs/types/product";
+import ProductModel from "../schema/Product.model";
 
 class ProductService {
     private readonly productModel;
@@ -13,13 +16,13 @@ class ProductService {
 
     /* SPA */
 
-    /* SPA */
+    /* SRR */
 
-    public async getAllProducts(
-    ): Promise<Product[]> {
+    public async getAllProducts(): Promise<Product[]> {
         // string => ObjectId
         const result = await this.productModel.find().exec();
-        if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+        if (!result)
+            throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
 
         return result;
     }
@@ -35,19 +38,18 @@ class ProductService {
 
     public async updateChosenProduct(
         id: string,
-        input: ProductUpdateInput
+        input: ProductUpdateInput,
     ): Promise<Product> {
         // string => ObjectId
         id = shapeIntoMongooseObjectId(id);
         const result = await this.productModel
             .findOneAndUpdate({ _id: id }, input, { new: true })
             .exec();
-        if (!result) throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
+        if (!result)
+            throw new Errors(HttpCode.NOT_MODIFIED, Message.UPDATE_FAILED);
 
         return result;
     }
 }
-
-
 
 export default ProductService;
