@@ -5,8 +5,8 @@ body:
   type: json
   content: |-
     {
-        "memberNick": "Simon",
-        "memberPhone": "821024587777",
+        "memberNick": "Shawn",
+        "memberPhone": "821024581515",
         "memberPassword": "damir2020"
     }
 order: 854704439844
