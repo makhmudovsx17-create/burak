@@ -19,9 +19,9 @@ const store = new MongoDBStore({
 /** 1 - ENTRANCE **/
 const app = express(); // loyihamiz BSSR usulida quriladi va bu cod sourcelarni butun brauzerlarga ochib beradi
 app.use(express.static(path.join(__dirname, "public"))); // Middleware DP > publicni ochiqlayapti
-app.use(express.urlencoded({ extended: true })); // Middleware DP > Traditional APIga hizmat qilyapti
+app.use(express.urlencoded({ extended: true })); // Middleware DP > Traditional API larni handle qilish uchun
 app.use(express.json()); // Middleware DP > REST APIga hizmat qilyapti
-app.use(cookieParser());
+app.use(cookieParser()); // kirib kelayotgan cookie larni parsing qilib beradi
 app.use(morgan(MORGAN_FORMAT));
 
 /** 2 - SESSIONS **/
@@ -43,8 +43,8 @@ app.use(function (req, res, next) {
 });
 
 /** 3 - VIEWS **/
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views")); // adminka uchun express ning settinglari
+app.set("view engine", "ejs"); // adminka uchun express ning settinglari
 
 /** 4 - ROUTERS **/
 app.use("/admin", routerAdmin); // SSR
