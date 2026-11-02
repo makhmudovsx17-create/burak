@@ -19,6 +19,7 @@ const store = new MongoDBStore({
 /** 1 - ENTRANCE **/
 const app = express(); // loyihamiz BSSR usulida quriladi va bu cod sourcelarni butun brauzerlarga ochib beradi
 app.use(express.static(path.join(__dirname, "public"))); // Middleware DP > publicni ochiqlayapti
+app.use("/uploads", express.static("./uploads"));
 app.use(express.urlencoded({ extended: true })); // Middleware DP > Traditional API larni handle qilish uchun
 app.use(express.json()); // Middleware DP > REST APIga hizmat qilyapti
 app.use(cookieParser()); // kirib kelayotgan cookie larni parsing qilib beradi

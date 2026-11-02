@@ -1,0 +1,34 @@
+$kind: http-request
+name: "member: updateMember"
+url: localhost:3003/member/update
+method: POST
+body:
+  type: formdata
+  content:
+    - type: text
+      key: memberNick
+      value: David
+      description: ""
+      disabled: false
+    - type: text
+      key: memberPhone
+      value: "821024589999"
+      description: ""
+      disabled: false
+    - type: text
+      key: memberAddres
+      value: ""
+      description: ""
+      disabled: true
+    - type: text
+      key: memberDesc
+      value: I am the Greatest!
+      description: ""
+      disabled: false
+    - type: file
+      key: memberImage
+      src:
+        - /Users/ms_fel1x/Desktop/462a04fd-e74f-4d9b-a6b7-20cacb88cbfb.jpeg
+      description: ""
+      disabled: false
+order: 854704442844
