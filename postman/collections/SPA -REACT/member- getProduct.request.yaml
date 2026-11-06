@@ -1,5 +1,5 @@
 $kind: http-request
 name: "member: getProduct"
-url: ""
+url: localhost:3003/product/6ad454d61de600deca2c008e
 method: GET
 order: 854704446844

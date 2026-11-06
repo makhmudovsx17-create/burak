@@ -6,7 +6,7 @@ body:
   type: json
   content: |-
     {
-        "memberNick": "David",
+        "memberNick": "Martin",
         "memberPassword": "damir2020"
     }
 order: 789851017885
