@@ -151,7 +151,7 @@ restaurantController.checkAuthSession = async (
     }
 };
 
-restaurantController.verfyRestaturant = (
+restaurantController.verifyRestaurant = (
     req: AdminRequest,
     res: Response,
     next: NextFunction,

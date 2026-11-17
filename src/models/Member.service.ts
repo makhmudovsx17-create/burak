@@ -19,7 +19,7 @@ class MemberService {
 
     /* SPA */
 
-    public async getRestaturant(): Promise<Member> {
+    public async getRestaurant(): Promise<Member> {
         const result = await this.memberModel
             .findOne({ memberType: MemberType.RESTAURANT })
             .exec();
@@ -114,7 +114,7 @@ class MemberService {
         return result;
     }
 
-    public async addUserPint(member: Member, point: number): Promise<Member> {
+    public async addUserPoint(member: Member, point: number): Promise<Member> {
         const memberId = shapeIntoMongooseObjectId(member._id);
 
         return await this.memberModel

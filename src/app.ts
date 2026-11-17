@@ -1,3 +1,4 @@
+import cors from "cors";
 import express from "express";
 import path from "path";
 import router from "./router";
@@ -22,6 +23,7 @@ app.use(express.static(path.join(__dirname, "public"))); // Middleware DP > publ
 app.use("/uploads", express.static("./uploads"));
 app.use(express.urlencoded({ extended: true })); // Middleware DP > Traditional API larni handle qilish uchun
 app.use(express.json()); // Middleware DP > REST APIga hizmat qilyapti
+app.use(cors({ credentials: true, origin: true }));
 app.use(cookieParser()); // kirib kelayotgan cookie larni parsing qilib beradi
 app.use(morgan(MORGAN_FORMAT));
 
